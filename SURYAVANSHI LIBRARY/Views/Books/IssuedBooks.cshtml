@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SURYAVANSHI_LIBRARY.Models.Book>
+
+@{
+    ViewData["Title"] = "Issued Books List";
+}
+
+<h1>Manage Books</h1>
+<hr />
+
+<h4>Issued Books List : </h4>
+<table class="table table-striped" border="1">
+
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.IssuedStatus == true)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublisherId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IssuedStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td align="center">
+                        <a asp-action="Edit" asp-route-id="@item.ISBN" class="btn btn-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.ISBN" class="btn btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.ISBN" class="btn btn-danger pull-right">Delete</a>
+                    </td>
+                </tr>
+            }
+            else
+            {
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-action="Index" class="btn btn-info">Back to List</a>

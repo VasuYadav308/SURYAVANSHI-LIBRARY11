@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SURYAVANSHI_LIBRARY.Models.LateTransactionInfo>
+@{
+    ViewData["Title"] = "Late  Pop";
+}
+
+<h1>Late Book</h1>
+&nbsp;
+<h4>Transaction :</h4>
+<hr/>
+@*
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Late Book</h2>
+        </div>
+    </div>
+</div>*@
+
+
+<table class="table table-striped" border="1">
+    <thead class="table-info">
+
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.CustomerName)</th>
+            <th> @Html.DisplayNameFor(model => model.BookTitle)</th>
+            <th> @Html.DisplayNameFor(model => model.ISBN)</th>
+            <th> @Html.DisplayNameFor(model => model.AuthorName)</th>
+            <th> @Html.DisplayNameFor(model => model.LateFees)</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var transaction in Model)
+            {
+                <tr>
+                    <td>@transaction.CustomerName</td>
+                    <td>@transaction.BookTitle</td>
+                    <td>@transaction.ISBN</td>
+                    <td>@transaction.AuthorName</td>
+                    <td>@transaction.LateFees</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+&nbsp;
+&nbsp;
+
+<div>
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</div>
+
+
+
+
+

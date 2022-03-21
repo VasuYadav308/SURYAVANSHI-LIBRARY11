@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SURYAVANSHI_LIBRARY.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Manage Transactions</h1>
+<hr />
+@*<h4>Transactions List :</h4>*@
+<div class="container">
+    <div class="row">
+        <h4>Transactions List :</h4>
+        <div class="col text-right">
+            <p>
+                <a asp-action="Create" class="btn btn-info">Issue Book</a>
+
+                <a asp-action="ReturnBook" class="btn btn-info">Return Book</a>
+
+                <a asp-action="LateBook" class="btn btn-info">Late Books</a>
+            </p>
+        </div>
+    </div>
+</div>
+@*<p>
+    <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table table-striped" border="1">
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfIssue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfReturn)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfIssue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfReturn)
+                </td>
+
+                <td align='center'>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger pull-right">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<p>
+    <a asp-action="Create" class="btn btn-outline-info btn-rounded waves-effect"> + Create New </a>
+    </p>
+*@

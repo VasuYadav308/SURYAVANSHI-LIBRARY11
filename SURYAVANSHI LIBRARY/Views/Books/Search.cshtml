@@ -1,0 +1,126 @@
+﻿@*@model IEnumerable<SURYAVANSHI_LIBRARY.Models.Book>
+
+    @{
+        ViewData["Title"] = "Search";
+    }
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    @using (Html.BeginForm("Search", "Books", FormMethod.Get))
+    {
+        <b>Search By: </b>
+        @Html.RadioButton("SearchBy", "Title", true)<text>Title  </text>
+        @Html.RadioButton("SearchBy", "ISBN")<text>ISBN  </text>
+        @Html.RadioButton("SearchBy", "AuthorId")<text>AuthorId </text>
+        @Html.RadioButton("SearchBy", "PublisherId")<text>PublisherId </text>
+        <br />
+        @Html.TextBox("search")<input type="submit" value="Search" />
+
+    }
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Publisher)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IssuedStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublisherId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IssuedStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ISBN">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ISBN">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ISBN">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row">
+
+        Grid column
+        <div class="col-md-12 mb-4">
+
+            <a type="button" class="btn-floating deep-purple"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+            <a type="button" class="btn-floating indigo"><i class="fab fa-google-wallet" aria-hidden="true"></i></a>
+            <a type="button" class="btn-floating light-blue"><i class="fab fa-envira" aria-hidden="true"></i></a>Basic example
+            <a type="button" class="btn-floating cyan"><i class="fab fa-apple" aria-hidden="true"></i></a>
+            <a type="button" class="btn-floating teal"><i class="fas fa-arrows-alt" aria-hidden="true"></i></a>
+            <a type="button" class="btn-floating light-green"><i class="far fa-hand-point-right" aria-hidden="true"></i></a>
+
+        </div>
+        Grid column
+        Grid column
+        <div class="col-md-12 mb-4">
+
+            <button type="button" class="btn btn-rounded btn-amber"><i class="fas fa-th-list pr-2" aria-hidden="true"></i>List</button>
+            <button type="button" class="btn btn-rounded btn-brown"><i class="fas fa-redo pr-2" aria-hidden="true"></i>Rotate</button>
+            <button type="button" class="btn btn-rounded btn-blue-grey"><i class="far fa-save pr-2" aria-hidden="true"></i>Floppy</button>
+            <button type="button" class="btn btn-rounded btn-primary"><i class="fab fa-bitcoin pr-2" aria-hidden="true"></i>Bitcoin</button>
+
+        </div>
+        Grid column
+        Grid column
+        <div class="col-md-12">
+
+            <button type="button" class="btn btn-outline-success btn-rounded waves-effect">
+                <i class="fas fa-cogs pr-2"
+                   aria-hidden="true"></i>Success
+            </button>
+            <button type="button" class="btn btn-outline-info btn-rounded waves-effect">
+                <i class="fas fa-wheelchair pr-2"
+                   aria-hidden="true"></i>Info
+            </button>
+            <button type="button" class="btn btn-outline-warning btn-rounded waves-effect">
+                <i class="fas fa-car pr-2"
+                   aria-hidden="true"></i>Warning
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-rounded waves-effect">
+                <i class="fas fa-train pr-2"
+                   aria-hidden="true"></i>Danger
+            </button>
+
+        </div>
+        Grid column*@

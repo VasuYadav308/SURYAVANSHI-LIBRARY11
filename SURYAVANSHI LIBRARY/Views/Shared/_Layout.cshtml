@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SURYAVANSHI_LIBRARY</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <div class="card text-white bg-info mb-10" style="max-width: 50rem;">
+                    <div class="card-header">
+                        <img src="~/Images/logo.jpg" width="50" height="35">
+                        Suryavansi Library Management System
+                    </div>                  
+                </div>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="align-content-between">
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>&nbsp;&nbsp;
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Authors" asp-action="Index">Authors</a>
+                            </li>&nbsp;&nbsp;
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Publishers" asp-action="Index">Publishers</a>
+                            </li>&nbsp;&nbsp;
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Books" asp-action="Index">Books</a>
+                            </li>&nbsp;&nbsp;
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Customers" asp-action="Index">Customers</a>
+                            </li>&nbsp;&nbsp;
+                            <li class="btn btn-outline-info">
+                                <a class="nav-link text-dark" asp-controller="Transactions" asp-action="Index">Transactions</a>
+                            </li>
+
+                            @*<li  class="btn btn-outline-info">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Manage</option>
+                                <option  value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                </select>
+                                </li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid">
+            <div class="card text-white bg-info mb-10" align="center">
+            &copy; 2022 - SURYAVANSHI_LIBRARY_MANAGEMENT<a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

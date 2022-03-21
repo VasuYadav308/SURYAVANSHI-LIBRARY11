@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SURYAVANSHI_LIBRARY.Models.Book>
+
+@{
+    ViewData["Title"] = "Books List";
+}
+
+<h1>Manage Books</h1>
+<hr />
+
+@using (Html.BeginForm("Index", "Books", FormMethod.Get))
+{
+    <h4>Search By:</h4>
+    <b>
+        @Html.RadioButton("SearchBy","Title",true) <text>Title  </text>
+        @Html.RadioButton("SearchBy","ISBN") <text>ISBN  </text>
+        @Html.RadioButton("SearchBy","AuthorId") <text>AuthorId </text>
+        @Html.RadioButton("SearchBy","PublisherId") <text>PublisherId </text>
+    </b>
+    <br />
+    @Html.TextBox("search")
+    <input type="submit" value="Search" />
+}
+&nbsp;
+
+<div class="container">
+    <div class="row">
+        <h4>Books List :</h4>
+        <div class="col text-right">
+            <p>
+                <a asp-action="AvailBooks" class="btn btn-info">Available Books</a>
+                <a asp-action="IssuedBooks" class="btn btn-info">Issued Books</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" border="1" >
+
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublisherId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssuedStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                </td>
+                <td align="center">
+                    <a asp-action="Edit" asp-route-id="@item.ISBN" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ISBN" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ISBN" class="btn btn-danger pull-right">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" class="btn btn-success btn-lg align-content-center">+Create New</a>
+</p>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SURYAVANSHI_LIBRARY.Models.Author>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Manage Authors</h1>
+<hr />
+
+<h4>Authors List :</h4>
+<table class="table table-striped" border="1">
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td align="center">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger pull-right">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" class="btn btn-success btn-lg align-content-center">+Create New</a>
+</p>
+@section Scripts
+{
+<script type="text/javascript">
+    function confirmDelete(rollNo) {
+        return confirm("Do you really want to delete Student with Roll No: " + rollNo);
+    }
+
+    function confirmDelete2(rollNo, href) {
+        Swal.fire({
+            title: "Do you really want to delete Student with Roll No: " ,
+            showCancelButton: true,
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = href;
+            }
+        })
+    }
+
+</script>
+}
